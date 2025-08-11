@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        image 'golang:1.24.6'
+    }
 
     stages {
         stage('Checkout') {
