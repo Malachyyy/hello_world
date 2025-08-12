@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'golang:tip-alpine3.22' }
+    }
 
     stages {
         stage('Checkout') {
@@ -8,12 +10,6 @@ pipeline {
             }
         }
         stage('Build') {
-            agent {
-                docker {
-                    image 'golang:tip-alpine3.22'
-                    args '-v $WORKSPACE:/go/src/hello_world'
-                }
-            }
             steps {
                 sh 'go build -o hello_world main.go'
             }
