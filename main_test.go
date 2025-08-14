@@ -9,5 +9,7 @@ func TestMain(t *testing.T) {
 	want := "Hello, World!"
 	if got != want {
 		t.Errorf("got %q, want %q", got, want)
+	} else {
+		t.Log("✅ Test passed successfully")
 	}
 }
